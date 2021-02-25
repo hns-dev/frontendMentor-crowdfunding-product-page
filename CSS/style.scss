@@ -6,20 +6,62 @@ $dark-cyan: hsl(176, 72%, 28%);
 $black: hsl(0, 0%, 0%);
 $dark-gray: hsl(0, 0%, 48%);
 
+$background-color: hsl(0, 12%, 94%);
+
 // Font
 $font-stack: "Commissioner";
 $font-size: 16px;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
 body {
-  background-color: $moderate-cyan;
+  font-family: $font-stack, sans-serif;
+  font-size: $font-size;
+  line-height: 1.6;
+  min-height: 100vh;
+  font-weight: 400;
+  text-align: center;
+  color: $dark-gray;
+  background-color: $background-color;
+}
+
+.container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 header {
+  background: url("../images/image-hero-mobile.jpg") no-repeat center/cover;
+  height: 41.3vh;
+
   .navbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 3em 0;
   }
 
   .hamburger-icon {
@@ -27,11 +69,354 @@ header {
   }
 
   .nav-links {
-    width: 100%;
     display: none;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+    margin: 2em 0;
+    z-index: 1;
+
+    li {
+      padding: 1.1em 1.5em;
+      border-bottom: 1px solid #ccc;
+    }
 
     &.show {
       display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      //   color: white;
+      color: $black;
+      font-weight: 500;
+      //   padding-left: 2em;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  color: $black;
+  font-size: 1.5rem;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: $moderate-cyan;
+  color: white;
+  //   padding: 1em 1.5em;
+  padding: 0.9em 2em;
+  border-radius: 50px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.btn:hover {
+  background-color: $dark-cyan;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(226, 225, 225);
+  margin: 1em 0;
+  padding: 2em 1.5em;
+}
+
+main {
+  position: relative;
+  top: -50%;
+  transform: translateY(-4%);
+}
+
+// Product summary
+.product-summary {
+  position: relative;
+
+  .product-logo {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  h1 {
+    margin-top: 1em;
+  }
+
+  p {
+    margin: 1.5em 0;
+  }
+
+  .action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a.btn {
+      flex: 0.9;
+    }
+
+    .bookmark {
+      cursor: pointer;
+      //   width: ;
+      flex: fit-content;
+      //   background: rgb(238, 237, 237);
+      background-color: #eee;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      transition: all 0.5s ease-in-out;
+
+      .collapse-bookmark {
+        display: none;
+        padding: 1em 1.5em 1em 1em;
+        font-weight: 600;
+      }
+
+      .bookmark-icon {
+        circle {
+          transition: all 0.5s ease-in-out;
+        }
+
+        path {
+          transition: all 0.5s ease-in-out;
+        }
+      }
+
+      &:hover {
+        color: $dark-cyan;
+
+        .bookmark-icon {
+          circle {
+            fill: $dark-cyan;
+          }
+
+          path {
+            fill: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Stats
+.product-stats {
+  //   hr {
+  //     width: 35%;
+  //     height: 1px;
+  //     margin: 1em auto;
+  //     color: $dark-gray;
+  //   }
+  .stat {
+    position: relative;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+
+    &:nth-child(1)::after,
+    &:nth-child(2)::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 1px;
+      background-color: #ccc;
+      //   margin: 1em 0;
+    }
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  span {
+    display: inline-block;
+    margin: 0.5em 0;
+    font-size: 0.9rem;
+  }
+
+  .progress-bar {
+    background-color: #eee;
+    width: 100%;
+    height: 10px;
+    border-radius: 50px;
+
+    .indicator {
+      width: 89%;
+      height: 100%;
+      background-color: $moderate-cyan;
+      border-radius: 50px;
+    }
+  }
+}
+
+// product details
+.product-details {
+  text-align: left;
+
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    margin: 1.5em 0;
+    font-size: 0.9rem;
+  }
+
+  .modal {
+    h4 {
+      font-size: 1rem;
+    }
+
+    .pledge-price {
+      color: $moderate-cyan;
+      font-size: 1rem;
+      font-weight: 500;
+      display: inline-block;
+      //   margin-top: 0.5em;
+    }
+
+    .card-title,
+    .card-footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      //   align-items: center;
+    }
+
+    .card-footer {
+      margin: 2em 0 0;
+    }
+    .quantity-left {
+      //   margin: 2em 0 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .quantity {
+      font-weight: 700;
+      font-size: 2rem;
+      color: $black;
+      margin-right: 0.3em;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.9em 2em;
+    }
+  }
+}
+
+.selection-modal,
+.success-modal {
+  display: none;
+}
+
+// Media Queries
+@media (min-width: 700px) {
+  .container {
+    width: 80%;
+  }
+
+  .card {
+    padding: 2.5em;
+  }
+
+  header {
+    background: url("../images/image-hero-desktop.jpg") no-repeat left top/cover;
+
+    .hamburger-icon {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      width: unset;
+      background-color: unset;
+      li {
+        padding: unset;
+        border: unset;
+      }
+
+      a {
+        padding-left: 2em;
+        color: white;
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  main {
+    // width: 60%;
+    width: 950px;
+    margin: 0 auto;
+  }
+
+  .product-summary {
+    .action {
+      justify-content: space-between;
+      a.btn {
+        flex: unset;
+      }
+
+      .bookmark {
+        flex: unset;
+
+        .collapse-bookmark {
+          display: unset;
+        }
+      }
+    }
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product-stats {
+    .stat {
+      padding: 0;
+      margin: 0 0 2em 0;
+      flex: 1;
+      text-align: left;
+      &:nth-child(1)::after,
+      &:nth-child(2)::after {
+        width: 1px;
+        height: 80px;
+        left: unset;
+        right: 20%;
+      }
+    }
+  }
+
+  .product-details {
+    .modal {
+      padding: 2em;
+      .card-title,
+      .card-footer {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .pledge-price {
+        margin-top: unset;
+      }
+
+      a.btn {
+        margin: 0;
+      }
     }
   }
 }
