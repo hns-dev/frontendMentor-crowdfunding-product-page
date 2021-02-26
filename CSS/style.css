@@ -390,7 +390,8 @@ main {
   padding: 0.9em 2em;
 }
 
-.selection-modal {
+.selection-modal,
+.success-modal {
   display: none;
 }
 
@@ -503,6 +504,7 @@ main {
 }
 
 .selection-modal .modal-content .selected-pledge .selected-pledge-form input {
+  cursor: pointer;
   display: inline-block;
   width: 10%;
   -webkit-box-flex: 0.8;

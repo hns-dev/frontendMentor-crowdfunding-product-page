@@ -394,9 +394,8 @@ main {
   }
 }
 
-.selection-modal
-// ,.success-modal
-{
+.selection-modal,
+.success-modal {
   display: none;
 }
 
@@ -481,6 +480,7 @@ main {
         margin-top: 1.5em;
 
         input {
+          cursor: pointer;
           display: inline-block;
           width: 10%;
           flex: 0.8;
