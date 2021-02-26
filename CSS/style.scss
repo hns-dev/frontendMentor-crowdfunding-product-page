@@ -64,8 +64,18 @@ header {
     padding: 3em 0;
   }
 
-  .hamburger-icon {
+  .nav-btn {
     cursor: pointer;
+  }
+
+  #hamburger-icon,
+  #close-icon {
+    display: none;
+  }
+
+  #hamburger-icon.show,
+  #close-icon.show {
+    display: unset;
   }
 
   .nav-links {
@@ -333,9 +343,10 @@ main {
   }
 
   header {
-    background: url("../images/image-hero-desktop.jpg") no-repeat left top/cover;
+    background: url("../images/image-hero-desktop.jpg") no-repeat;
+    background-size: cover;
 
-    .hamburger-icon {
+    .nav-btn {
       display: none;
     }
 
@@ -357,9 +368,11 @@ main {
   }
 
   main {
-    // width: 60%;
-    width: 950px;
-    margin: 0 auto;
+    .container {
+      // width: 60%;
+      max-width: 950px;
+      margin: 0 auto;
+    }
   }
 
   .product-summary {
@@ -391,12 +404,21 @@ main {
       margin: 0 0 2em 0;
       flex: 1;
       text-align: left;
+      // background-color: tomato;
+      // border-right: 1px solid black;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        padding-left: 2.5em;
+      }
+
       &:nth-child(1)::after,
       &:nth-child(2)::after {
         width: 1px;
-        height: 80px;
+        height: 60px;
         left: unset;
-        right: 20%;
+        right: 0%;
+        bottom: 10%;
       }
     }
   }

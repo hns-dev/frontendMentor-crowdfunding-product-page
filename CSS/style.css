@@ -60,8 +60,18 @@ header .navbar {
   padding: 3em 0;
 }
 
-header .hamburger-icon {
+header .nav-btn {
   cursor: pointer;
+}
+
+header #hamburger-icon,
+header #close-icon {
+  display: none;
+}
+
+header #hamburger-icon.show,
+header #close-icon.show {
+  display: unset;
 }
 
 header .nav-links {
@@ -336,9 +346,10 @@ main {
     padding: 2.5em;
   }
   header {
-    background: url("../images/image-hero-desktop.jpg") no-repeat left top/cover;
+    background: url("../images/image-hero-desktop.jpg") no-repeat;
+    background-size: cover;
   }
-  header .hamburger-icon {
+  header .nav-btn {
     display: none;
   }
   header .nav-links {
@@ -357,8 +368,8 @@ main {
     color: white;
     font-size: 1.1rem;
   }
-  main {
-    width: 950px;
+  main .container {
+    max-width: 950px;
     margin: 0 auto;
   }
   .product-summary .action {
@@ -398,11 +409,15 @@ main {
             flex: 1;
     text-align: left;
   }
+  .product-stats .stat:nth-child(2), .product-stats .stat:nth-child(3) {
+    padding-left: 2.5em;
+  }
   .product-stats .stat:nth-child(1)::after, .product-stats .stat:nth-child(2)::after {
     width: 1px;
-    height: 80px;
+    height: 60px;
     left: unset;
-    right: 20%;
+    right: 0%;
+    bottom: 10%;
   }
   .product-details .modal {
     padding: 2em;
