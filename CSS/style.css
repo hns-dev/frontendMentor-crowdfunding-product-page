@@ -23,6 +23,50 @@ a {
   cursor: pointer;
 }
 
+.custom-radio-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.custom-radio-btn input {
+  display: none;
+}
+
+.custom-radio-btn .checkmark {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid #f2eeee;
+  border-radius: 50%;
+  margin-right: 10px;
+  padding: 2px;
+}
+
+.custom-radio-btn .checkmark::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #3cb4ac;
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.15s;
+  transition: -webkit-transform 0.15s;
+  transition: transform 0.15s;
+  transition: transform 0.15s, -webkit-transform 0.15s;
+}
+
+.custom-radio-btn input:checked + .checkmark::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 body {
   font-family: "Commissioner", sans-serif;
   font-size: 16px;
@@ -57,7 +101,7 @@ header .navbar {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 3em 0;
+  padding: 1.5em 0;
 }
 
 header .nav-btn {
@@ -65,12 +109,12 @@ header .nav-btn {
 }
 
 header #hamburger-icon,
-header #close-icon {
+header #menu-close-icon {
   display: none;
 }
 
 header #hamburger-icon.show,
-header #close-icon.show {
+header #menu-close-icon.show {
   display: unset;
 }
 
@@ -116,12 +160,19 @@ h4 {
 
 .btn {
   cursor: pointer;
+  border: 0;
   background-color: #3cb4ac;
   color: white;
   padding: 0.9em 2em;
   border-radius: 50px;
   -webkit-transition: background-color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
+}
+
+input {
+  border-radius: 50px;
+  border: 2px solid #f2eeee;
+  padding: 0.9em 0.5em;
 }
 
 .btn:hover {
@@ -214,15 +265,15 @@ main {
   transition: all 0.5s ease-in-out;
 }
 
-.product-summary .action .bookmark:hover {
+.product-summary .bookmarked {
   color: #147b74;
 }
 
-.product-summary .action .bookmark:hover .bookmark-icon circle {
+.product-summary .bookmarked .bookmark-icon circle {
   fill: #147b74;
 }
 
-.product-summary .action .bookmark:hover .bookmark-icon path {
+.product-summary .bookmarked .bookmark-icon path {
   fill: white;
 }
 
@@ -269,6 +320,26 @@ main {
   border-radius: 50px;
 }
 
+.pledge-price {
+  color: #3cb4ac;
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.bold-black-text {
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.quantity {
+  font-weight: 700;
+  font-size: 2rem;
+  color: black;
+  margin-right: 0.3em;
+}
+
 .product-details {
   text-align: left;
 }
@@ -284,13 +355,6 @@ main {
 
 .product-details .modal h4 {
   font-size: 1rem;
-}
-
-.product-details .modal .pledge-price {
-  color: #3cb4ac;
-  font-size: 1rem;
-  font-weight: 500;
-  display: inline-block;
 }
 
 .product-details .modal .card-title,
@@ -320,22 +384,166 @@ main {
           align-items: center;
 }
 
-.product-details .modal .quantity {
-  font-weight: 700;
-  font-size: 2rem;
-  color: black;
-  margin-right: 0.3em;
-}
-
 .product-details .modal a.btn {
   display: inline-block;
   margin-top: 1em;
   padding: 0.9em 2em;
 }
 
+.selection-modal {
+  display: none;
+}
+
 .selection-modal,
 .success-modal {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.selection-modal .modal-content,
+.success-modal .modal-content {
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.success-modal .modal-content {
+  max-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.success-modal .modal-content .check-icon {
+  margin-bottom: 1.5em;
+}
+
+.success-modal .modal-content p {
+  padding: 1.5em 0;
+}
+
+.success-modal .modal-content a.btn {
+  margin-top: 1em;
+}
+
+.selection-modal {
+  padding: 7em 0;
+}
+
+.selection-modal .modal-content {
+  text-align: left;
+  position: relative;
+}
+
+.selection-modal .modal-content .card {
+  padding: 1.5em 2em;
+}
+
+.selection-modal .modal-content .modal-close-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 2.5%;
+  right: 8%;
+}
+
+.selection-modal .modal-content p {
+  padding: 1em 0;
+  font-size: 0.9rem;
+}
+
+.selection-modal .modal-content .quantity {
+  font-size: 1.7rem;
+}
+
+.selection-modal .modal-content .selected-pledge {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.selection-modal .modal-content .selected-pledge .selected-pledge-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1.5em;
+}
+
+.selection-modal .modal-content .selected-pledge .selected-pledge-form input {
+  display: inline-block;
+  width: 10%;
+  -webkit-box-flex: 0.8;
+      -ms-flex: 0.8;
+          flex: 0.8;
+}
+
+.selection-modal .modal-content .selected-pledge .selected-pledge-form input::-webkit-input-placeholder {
+  padding: 1em;
+  font-family: "Commissioner";
+  font-size: 16px;
+  font-weight: 600;
+  color: #7a7a7a;
+}
+
+.selection-modal .modal-content .selected-pledge .selected-pledge-form input:-ms-input-placeholder {
+  padding: 1em;
+  font-family: "Commissioner";
+  font-size: 16px;
+  font-weight: 600;
+  color: #7a7a7a;
+}
+
+.selection-modal .modal-content .selected-pledge .selected-pledge-form input::-ms-input-placeholder {
+  padding: 1em;
+  font-family: "Commissioner";
+  font-size: 16px;
+  font-weight: 600;
+  color: #7a7a7a;
+}
+
+.selection-modal .modal-content .selected-pledge .selected-pledge-form input::placeholder {
+  padding: 1em;
+  font-family: "Commissioner";
+  font-size: 16px;
+  font-weight: 600;
+  color: #7a7a7a;
+}
+
+.selection-modal .modal-content .selected-pledge .selected-pledge-form .btn {
+  font-weight: 600;
 }
 
 @media (min-width: 700px) {
@@ -343,7 +551,7 @@ main {
     width: 80%;
   }
   .card {
-    padding: 2.5em;
+    padding: 2em;
   }
   header {
     background: url("../images/image-hero-desktop.jpg") no-repeat;
@@ -369,7 +577,7 @@ main {
     font-size: 1.1rem;
   }
   main .container {
-    max-width: 950px;
+    max-width: 700px;
     margin: 0 auto;
   }
   .product-summary .action {
@@ -432,11 +640,41 @@ main {
         -ms-flex-align: center;
             align-items: center;
   }
-  .product-details .modal .pledge-price {
-    margin-top: unset;
-  }
   .product-details .modal a.btn {
     margin: 0;
+  }
+  .pledge-price {
+    margin-top: unset;
+    margin-left: 1.5em;
+  }
+  .selection-modal .modal-content .modal-close-icon {
+    top: 4%;
+    right: 5%;
+  }
+  .selection-modal .modal-content .selected-pledge {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding-top: 1em;
+    margin-top: 1em;
+  }
+  .selection-modal .modal-content .selected-pledge .selected-pledge-form {
+    margin-top: 0;
+  }
+  .selection-modal .modal-content .form-control {
+    position: relative;
+  }
+  .selection-modal .modal-content .form-control p {
+    padding-left: 2em;
+  }
+  .selection-modal .modal-content .form-control .quantity-left {
+    position: absolute;
+    top: 3%;
+    right: 6%;
+  }
+  .selection-modal .modal-content .form-control .quantity {
+    font-size: 1.3rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
