@@ -42,7 +42,7 @@
         <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
 
         <div class="action">
-          <a href="#" class="btn">Back this project</a>
+          <button class="btn">Back this project</button>
 
           <div class="bookmark" id="bookmark">
             <svg class="bookmark-icon" width="56" height="56" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#2F2F2F" cx="28" cy="28" r="28"/><path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z"/></g></svg>
@@ -105,7 +105,7 @@
           <div class="card-footer">
             <!-- <p><span class="quantity">101</span> left</p> -->
             <div class="quantity-left"><span class="quantity">101</span>left</div>
-            <a href="#" class="btn modal-selction-btn">Select Reward</a>
+            <button class="btn modal-selction-btn">Select Reward</button>
           </div>
         </div>
 
@@ -124,7 +124,7 @@
           <div class="card-footer">
             <!-- <p><span class="quantity">64</span> left</p> -->
             <div class="quantity-left"><span class="quantity">64</span>left</div>
-            <a href="#" class="btn modal-selction-btn">Select Reward</a>
+            <button class="btn modal-selction-btn">Select Reward</button>
           </div>
         </div>
 
@@ -143,7 +143,7 @@
           <div class="card-footer">
             <!-- <p><span class="quantity">0</span> left</p> -->
             <div class="quantity-left"><span class="quantity">0</span>left</div>
-            <a href="#" class="btn modal-selction-btn">Out of Stock</a>
+            <button class="btn modal-selction-btn">Out of Stock</button>
           </div>
         </div>
       </div>
@@ -161,51 +161,59 @@
       <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
 
       <form class="selection-form">
-          <div class="form-control card">
-            <label for="pledgeChoice1" class="bold-black-text custom-radio-btn">
+          <!-- <div class="form-control card"> -->
+            <label for="pledgeChoice1" class="custom-radio-btn card">
               <input type="radio" id="pledgeChoice1"  name="pledge" value="Pledge with no reward">
-              <span class="checkmark"></span>
+              <div class="card-title bold-black-text">
+                <span class="checkmark"></span>
               Pledge with no reward
+              </div>
+              <p>Choose to support us without a reward if you simply believe in our project. As a backer, 
+                you will be signed up to receive product updates via email.</p>
             </label>
-            <p>Choose to support us without a reward if you simply believe in our project. As a backer, 
-              you will be signed up to receive product updates via email.</p>
-          </div>
+            
+          <!-- </div> -->
       
-          <div class="form-control card">
-            <label for="pledgeChoice2" class="bold-black-text custom-radio-btn">
-            <input type="radio" id="pledgeChoice2" name="pledge" value="Bamboo Stand">
-            <span class="checkmark"></span>
-            <div class="flex-container">
-              Bamboo Stand
-              <span class="pledge-price">Pledge $25 or more</span>
-            </div>
+          <!-- <div class="form-control card"> -->
+            <label for="pledgeChoice2" class="custom-radio-btn card" id="bambo-stand">
+              <input type="radio" id="pledgeChoice2" name="pledge" value="Bamboo Stand">
+              <div class="card-title bold-black-text">
+                <span class="checkmark"></span>
+              <div class="flex-container">
+                Bamboo Stand
+                <span class="pledge-price">Pledge $25 or more</span>
+              </div>
+              </div>
+
+              <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+                you’ll be added to a special Backer member list.</p>
+              <p class="quantity-left"><span class="quantity">101</span> left</p>
+
+              <!-- Selected pledge start -->
+              <div class="selected-pledge">
+                <span>Enter your pledge</span>
+                <div class="selected-pledge-form">
+                  <input type="number" placeholder="$" id="bamboo-stand-pledge">
+                  <button type="submit" class="btn">Continue</button>
+                </div>
+              </div>
+            <!-- Selected pledge end -->
           </label>
             
-            <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-              you’ll be added to a special Backer member list.</p>
-            <p class="quantity-left"><span class="quantity">101</span> left</p>
-
-            <!-- Selected pledge start -->
-            <div class="selected-pledge">
-              <span>Enter your pledge</span>
-              <div class="selected-pledge-form">
-                <input type="number" placeholder="$" id="bamboo-stand-pledge">
-                <button type="submit" class="btn">Continue</button>
-              </div>
-            </div>
-            <!-- Selected pledge end -->
-          </div>
+            
+          <!-- </div> -->
       
-          <div class="form-control card">
-            <label for="pledgeChoice3" class="bold-black-text custom-radio-btn">
+          <!-- <div class="form-control card"> -->
+            <label for="pledgeChoice3" class="custom-radio-btn card" id="black-edition-stand">
             <input type="radio" id="pledgeChoice3" name="pledge" value="Black Edition Stand">
-            <span class="checkmark"></span>
+            <div class="card-title bold-black-text">
+              <span class="checkmark"></span>
             <div class="flex-container">
               Black Edition Stand
               <span class="pledge-price">Pledge $75 or more</span>
             </div>
-          </label>
-            
+            </div>
+
             <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
               member list. Shipping is included.</p>
             <p class="quantity-left"><span class="quantity">64</span> left</p>
@@ -219,32 +227,39 @@
             </div>
             </div>
             <!-- Selected pledge end -->
-          </div>
+          </label>
+            
+            
+          <!-- </div> -->
 
-          <div class="form-control card">
-              <label for="pledgeChoice4" class="bold-black-text custom-radio-btn">
+          <!-- <div class="form-control card"> -->
+              <label for="pledgeChoice4" class="custom-radio-btn card" id="mahogany-special-edition">
               <input type="radio" id="pledgeChoice4" name="pledge" value="Mahogany Special Edition">
-              <span class="checkmark"></span>
+              <div class="card-title bold-black-text">
+                <span class="checkmark"></span>
               <div class="flex-container">
                 Mahogany Special Edition
                 <span class="pledge-price">Pledge $200 or more</span>
               </div>
+              </div>
+
+              <p>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+                to our Backer member list. Shipping is included.</p>
+              <p class="quantity-left"><span class="quantity">0</span> left</p>
+  
+              <!-- Selected pledge start -->
+              <div class="selected-pledge">
+                <span>Enter your pledge</span>
+                <div class="selected-pledge-form">
+                  <input type="number" placeholder="$" id="mahogany-special-edition-pledge">
+                  <button type="submit" class="btn">Continue</button>
+                </div>
+              </div>
+              <!-- Selected pledge end -->
             </label>
               
-            <p>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-              to our Backer member list. Shipping is included.</p>
-            <p class="quantity-left"><span class="quantity">0</span> left</p>
-
-            <!-- Selected pledge start -->
-            <div class="selected-pledge">
-              <span>Enter your pledge</span>
-              <div class="selected-pledge-form">
-                <input type="number" placeholder="$" id="mahogany-special-edition-pledge">
-                <button type="submit" class="btn">Continue</button>
-              </div>
-            </div>
-            <!-- Selected pledge end -->
-          </div>
+            
+          <!-- </div> -->
         
       </form>
     </article>
