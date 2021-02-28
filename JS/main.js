@@ -157,12 +157,12 @@ succesModalbtn.addEventListener('click', () => {
 })
 
 // ===========================================================
-const quantities = document.querySelectorAll('.selection-modal .quantity');
+// const quantities = document.querySelectorAll('.selection-modal .quantity');
 
-quantities.forEach(quantity => {
-    let quantityLeft = parseInt(quantity.textContent);
+// quantities.forEach(quantity => {
+//     let quantityLeft = parseInt(quantity.textContent);
 
-    if(quantityLeft == 0){
-        quantity.parentElement.parentElement.firstElementChild.disabled = true;
-    }
-})
+//     if(quantityLeft == 0){
+//         quantity.parentElement.parentElement.firstElementChild.disabled = true;
+//     }
+// })
