@@ -1,20 +1,29 @@
+// Nav controls
 const navBtn = document.querySelector('#nav-btn');
 const navLinks = document.querySelector('#nav-links');
 const hamburger = document.querySelector('#hamburger-icon');
 const close = document.querySelector('#menu-close-icon');
+
+navBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    hamburger.classList.toggle('show');
+    close.classList.toggle('show');
+})
+
+
+
+
+
+// Bookmark control
 const bookmark = document.querySelector('#bookmark');
 
-
-
-const modalSelectionBtn = document.querySelectorAll('.modal-selction-btn');
-const selectionmodal = document.querySelector('.selection-modal');
-
-const modalClosebtn = document.querySelector('.modal-close-icon');
+bookmark.addEventListener('click', ()=>{
+    bookmark.classList.toggle('bookmarked');
+})
 
 
 
-const successModal = document.querySelector('.success-modal');
-const succesModalbtn = document.querySelector('#success-modal-btn');
+
 
 // progress bar - indicator
 const progressIndicator = document.querySelector('#indicator');
@@ -26,23 +35,60 @@ let currentTotalMoney = parseInt(totalMoney.textContent.slice(1).split(',').join
 const totalBackers = document.querySelector('#total-backers');
 let currentTotalBacker = parseInt(totalBackers.textContent.split(',').join(''));
 
-// Selections - radios
+
+// Disable selection with zero quantity
+const quantities = document.querySelectorAll('.quantity');
+
+quantities.forEach(quantity => {
+    let quantityLeft = parseInt(quantity.textContent);
+
+    if(quantityLeft == 0){
+        quantity.parentElement.parentElement.parentElement.disabled = true;
+    }
+})
+
+
+// Modals related controls
+const projectOptionselectionBtn = document.querySelectorAll('.option-selection-btn');
+const selectionModal = document.querySelector('.selection-modal');
+const modalClosebtn = document.querySelector('.modal-close-icon');
+
+projectOptionselectionBtn.forEach(btn =>{
+    btn.addEventListener('click', ()=>{
+        selectionModal.style.display = 'flex';
+    })    
+})
+
+
+
+modalClosebtn.addEventListener('click', () =>{
+    selectionModal.style.display = 'none';
+})
+
+
+
+
+
+
+
+// Selection form 
+const form = document.querySelector('.selection-form');
+// Selections - radio buttons
 const selections = document.getElementsByName('pledge')
-// pledge
-// const pledge = document.querySelector('.pledge');
+// pledges - inputs
 const bambooStand = document.querySelector('#bamboo-stand-pledge');
 const blackEditionStand = document.querySelector('#black-edition-stand-pledge');
 const MahoganySpecialEdition = document.querySelector('#mahogany-special-edition-pledge');
 
+// Store the pledge amount the user submitted
 let pledgeAmount = 0;
-let selectedValue = 0;
+// store the value of the selected radio button
+let selectedValue = '';
 
 
-
-const form = document.querySelector('.selection-form');
-
+// Listen to form submit
 form.addEventListener("submit", function(event) {
-    
+    // get the value of the selected radio button
     selections.forEach(sel => {
         if(sel.checked){
             selectedValue = sel.value;
@@ -54,12 +100,12 @@ form.addEventListener("submit", function(event) {
         pledgeAmount = parseInt(bambooStand.value);
     } else if (selectedValue === "Black Edition Stand"){
         pledgeAmount = parseInt(blackEditionStand.value);
-    } else {
+    } else if (selectedValue === "Mahogany Special Edition"){
         pledgeAmount = parseInt(MahoganySpecialEdition.value);
     }
 
   event.preventDefault();
-  selectionmodal.style.display = 'none';
+  selectionModal.style.display = 'none';
   successModal.style.display = 'flex';
 }, false);
 
@@ -70,9 +116,10 @@ const allLabels = document.querySelectorAll('.custom-radio-btn');
 
 
 selections.forEach(selection => {
-    console.log(selection);
+    // console.log(selection);
 
     selection.addEventListener('click', ()=> {
+            // Hide 'selected pledge' section and reset lable border color
             allLabels.forEach(sel => {
                 if(sel.lastElementChild.classList.contains('selected-pledge')){
                     sel.lastElementChild.style.display = 'none';
@@ -83,7 +130,7 @@ selections.forEach(selection => {
 
             
             selectedValue = selection.value; 
-    
+            // Show 'selected pledge' section and change lable border color to moderate green
             if(selectedValue === "Bamboo Stand"){
                 const firstPledge = document.querySelector('#bambo-stand .selected-pledge');
                 firstPledge.style.display = 'flex';
@@ -106,33 +153,9 @@ selections.forEach(selection => {
 
 
 
-
-
-
-
-
-
-navBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-    hamburger.classList.toggle('show');
-    close.classList.toggle('show');
-
-})
-
-bookmark.addEventListener('click', ()=>{
-    bookmark.classList.toggle('bookmarked');
-})
-
-
-modalSelectionBtn.forEach(btn =>{
-    btn.addEventListener('click', ()=>{
-        selectionmodal.style.display = 'flex';
-    })    
-})
-
-modalClosebtn.addEventListener('click', () =>{
-    selectionmodal.style.display = 'none';
-})
+// Success Modal 
+const successModal = document.querySelector('.success-modal');
+const succesModalbtn = document.querySelector('#success-modal-btn');
 
 succesModalbtn.addEventListener('click', () => {
     successModal.style.display = 'none';
@@ -156,13 +179,9 @@ succesModalbtn.addEventListener('click', () => {
     totalBackers.textContent =  new Intl.NumberFormat().format(currentTotalBacker);
 })
 
-// ===========================================================
-// const quantities = document.querySelectorAll('.selection-modal .quantity');
 
-// quantities.forEach(quantity => {
-//     let quantityLeft = parseInt(quantity.textContent);
 
-//     if(quantityLeft == 0){
-//         quantity.parentElement.parentElement.firstElementChild.disabled = true;
-//     }
-// })
+
+
+
+

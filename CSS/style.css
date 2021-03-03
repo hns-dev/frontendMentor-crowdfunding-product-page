@@ -23,6 +23,95 @@ a {
   cursor: pointer;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  color: black;
+  font-size: 1.5rem;
+}
+
+fieldset {
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
+  -webkit-margin-end: 0;
+          margin-inline-end: 0;
+  -webkit-padding-before: 0;
+          padding-block-start: 0;
+  -webkit-padding-after: 0;
+          padding-block-end: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  -webkit-padding-end: 0;
+          padding-inline-end: 0;
+  border: none;
+  min-inline-size: -webkit-min-content;
+  min-inline-size: -moz-min-content;
+  min-inline-size: min-content;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background-color: #3cb4ac;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 1.2em 2em;
+  border-radius: 50px;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #147b74;
+}
+
+.btn:focus {
+  outline: 2px dotted #3cb4ac;
+}
+
+input {
+  border-radius: 50px;
+  border: 2px solid #f2eeee;
+  padding: 0.9em 0.5em;
+}
+
+input[type="number"]:hover {
+  border: 1px solid #3cb4ac;
+}
+
+input[type="number"]:focus {
+  outline: 2px dotted #3cb4ac;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #e2e1e1;
+  margin: 1em 0;
+  padding: 2em 1.5em;
+}
+
+.bold-black-text {
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 1.5em 0;
+  font-size: 0.9rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 body {
   font-family: "Commissioner", sans-serif;
   font-size: 16px;
@@ -32,12 +121,6 @@ body {
   text-align: center;
   color: #7a7a7a;
   background-color: #f2eeee;
-}
-
-.container {
-  width: 90%;
-  max-width: 1440px;
-  margin: 0 auto;
 }
 
 header {
@@ -105,76 +188,18 @@ header .nav-links a {
   font-size: 1.2rem;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  line-height: 1.2;
-  color: black;
-  font-size: 1.5rem;
-}
-
-.btn {
-  cursor: pointer;
-  border: 0;
-  background-color: #3cb4ac;
-  color: white;
-  font-weight: 600;
-  padding: 1.2em 2em;
-  border-radius: 50px;
-  -webkit-transition: background-color 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out;
-}
-
-input {
-  border-radius: 50px;
-  border: 2px solid #f2eeee;
-  padding: 0.9em 0.5em;
-}
-
-.btn:hover {
-  background-color: #147b74;
-}
-
-.card {
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid #e2e1e1;
-  margin: 1em 0;
-  padding: 2em 1.5em;
-}
-
-fieldset {
-  -webkit-margin-start: 0;
-          margin-inline-start: 0;
-  -webkit-margin-end: 0;
-          margin-inline-end: 0;
-  -webkit-padding-before: 0;
-          padding-block-start: 0;
-  -webkit-padding-after: 0;
-          padding-block-end: 0;
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
-  -webkit-padding-end: 0;
-          padding-inline-end: 0;
-  border: none;
-  min-inline-size: -webkit-min-content;
-  min-inline-size: -moz-min-content;
-  min-inline-size: min-content;
-}
-
-main {
+.main-content {
   position: relative;
   top: -50%;
   -webkit-transform: translateY(-4%);
           transform: translateY(-4%);
 }
 
-.product-summary {
+.project-summary {
   position: relative;
 }
 
-.product-summary .product-logo {
+.project-summary .project-logo {
   position: absolute;
   top: -10%;
   left: 50%;
@@ -182,15 +207,11 @@ main {
           transform: translate(-50%);
 }
 
-.product-summary h1 {
+.project-summary h1 {
   margin-top: 1em;
 }
 
-.product-summary p {
-  margin: 1.5em 0;
-}
-
-.product-summary .action {
+.project-summary .action {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -202,13 +223,13 @@ main {
           align-items: center;
 }
 
-.product-summary .action .btn {
+.project-summary .action .btn {
   -webkit-box-flex: 0.9;
       -ms-flex: 0.9;
           flex: 0.9;
 }
 
-.product-summary .action .bookmark {
+.project-summary .action .bookmark {
   cursor: pointer;
   -webkit-box-flex: fit-content;
       -ms-flex: fit-content;
@@ -225,41 +246,41 @@ main {
   transition: all 0.5s ease-in-out;
 }
 
-.product-summary .action .bookmark .collapse-bookmark {
+.project-summary .action .bookmark .collapse-bookmark {
   display: none;
   padding: 0.9em 1.5em 0.9em 1em;
   font-weight: 600;
 }
 
-.product-summary .action .bookmark .bookmark-icon circle {
+.project-summary .action .bookmark .bookmark-icon circle {
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
-.product-summary .action .bookmark .bookmark-icon path {
+.project-summary .action .bookmark .bookmark-icon path {
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
-.product-summary .bookmarked {
+.project-summary .bookmarked {
   color: #147b74;
 }
 
-.product-summary .bookmarked .bookmark-icon circle {
+.project-summary .bookmarked .bookmark-icon circle {
   fill: #147b74;
 }
 
-.product-summary .bookmarked .bookmark-icon path {
+.project-summary .bookmarked .bookmark-icon path {
   fill: white;
 }
 
-.product-stats .stat {
+.project-stats .stat {
   position: relative;
   margin-bottom: 1em;
   padding-bottom: 1em;
 }
 
-.product-stats .stat:nth-child(1)::after, .product-stats .stat:nth-child(2)::after {
+.project-stats .stat:nth-child(1)::after, .project-stats .stat:nth-child(2)::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -271,26 +292,26 @@ main {
   background-color: #ccc;
 }
 
-.product-stats h3 {
+.project-stats h3 {
   font-weight: 700;
   font-size: 2rem;
 }
 
-.product-stats span {
+.project-stats span {
   display: inline-block;
   margin: 0.5em 0;
   font-size: 0.9rem;
 }
 
-.product-stats .progress-bar {
+.project-stats .progress-bar {
   background-color: #eee;
   width: 100%;
   height: 10px;
   border-radius: 50px;
 }
 
-.product-stats .progress-bar .indicator {
-  width: 89%;
+.project-stats .progress-bar .indicator {
+  width: 88.78%;
   height: 100%;
   background-color: #3cb4ac;
   border-radius: 50px;
@@ -301,12 +322,6 @@ main {
   font-size: 1rem;
   font-weight: 500;
   display: inline-block;
-}
-
-.bold-black-text {
-  color: black;
-  font-size: 1rem;
-  font-weight: 600;
 }
 
 .quantity {
@@ -330,42 +345,23 @@ main {
           justify-content: space-between;
 }
 
-.product-details {
+.project-details {
   text-align: left;
 }
 
-.product-details h4 {
+.project-details h4 {
   font-size: 1.3rem;
 }
 
-.product-details p {
-  margin: 1.5em 0;
-  font-size: 0.9rem;
-}
-
-.product-details .modal h4 {
+.project-details .option h4 {
   font-size: 1rem;
 }
 
-.product-details .modal .card-title,
-.product-details .modal .card-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.product-details .modal .card-footer {
+.project-details .option .card-footer {
   margin: 2em 0 0;
 }
 
-.product-details .modal .quantity-left {
+.project-details .option .quantity-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -374,7 +370,7 @@ main {
           align-items: center;
 }
 
-.product-details .modal .btn {
+.project-details .option .btn {
   display: inline-block;
   margin-top: 1em;
 }
@@ -429,10 +425,6 @@ main {
   margin-bottom: 1.5em;
 }
 
-.success-modal .modal-content p {
-  padding: 1.5em 0;
-}
-
 .success-modal .modal-content .btn {
   margin-top: 1em;
 }
@@ -457,8 +449,12 @@ main {
   right: 8%;
 }
 
+.selection-modal .modal-content .modal-close-icon:hover path {
+  fill: black;
+  opacity: 1;
+}
+
 .selection-modal .modal-content p {
-  padding: 1em 0;
   font-size: 0.9rem;
 }
 
@@ -497,10 +493,10 @@ main {
   -webkit-box-flex: 0.8;
       -ms-flex: 0.8;
           flex: 0.8;
+  padding: 0.9em 1.2em;
 }
 
 .selection-modal .modal-content .selected-pledge .selected-pledge-form input::-webkit-input-placeholder {
-  padding: 1em;
   font-family: "Commissioner";
   font-size: 16px;
   font-weight: 600;
@@ -508,7 +504,6 @@ main {
 }
 
 .selection-modal .modal-content .selected-pledge .selected-pledge-form input:-ms-input-placeholder {
-  padding: 1em;
   font-family: "Commissioner";
   font-size: 16px;
   font-weight: 600;
@@ -516,7 +511,6 @@ main {
 }
 
 .selection-modal .modal-content .selected-pledge .selected-pledge-form input::-ms-input-placeholder {
-  padding: 1em;
   font-family: "Commissioner";
   font-size: 16px;
   font-weight: 600;
@@ -524,7 +518,6 @@ main {
 }
 
 .selection-modal .modal-content .selected-pledge .selected-pledge-form input::placeholder {
-  padding: 1em;
   font-family: "Commissioner";
   font-size: 16px;
   font-weight: 600;
@@ -601,12 +594,34 @@ main {
   color: #3cb4ac;
 }
 
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 @media (min-width: 700px) {
   .container {
     width: 80%;
   }
   .card {
     padding: 2em;
+  }
+  .flex-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   header {
     background: url("../images/image-hero-desktop.jpg") no-repeat;
@@ -631,40 +646,29 @@ main {
     color: white;
     font-size: 1.1rem;
   }
-  main .container {
+  .main-content .container {
     max-width: 700px;
     margin: 0 auto;
   }
-  .product-summary .action {
+  .project-summary .action {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .product-summary .action .btn {
+  .project-summary .action .btn {
     -webkit-box-flex: unset;
         -ms-flex: unset;
             flex: unset;
   }
-  .product-summary .action .bookmark {
+  .project-summary .action .bookmark {
     -webkit-box-flex: unset;
         -ms-flex: unset;
             flex: unset;
   }
-  .product-summary .action .bookmark .collapse-bookmark {
+  .project-summary .action .bookmark .collapse-bookmark {
     display: unset;
   }
-  .flex-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .product-stats .stat {
+  .project-stats .stat {
     padding: 0;
     margin: 0 0 2em 0;
     -webkit-box-flex: 1;
@@ -672,21 +676,21 @@ main {
             flex: 1;
     text-align: left;
   }
-  .product-stats .stat:nth-child(2), .product-stats .stat:nth-child(3) {
+  .project-stats .stat:nth-child(2), .project-stats .stat:nth-child(3) {
     padding-left: 2.5em;
   }
-  .product-stats .stat:nth-child(1)::after, .product-stats .stat:nth-child(2)::after {
+  .project-stats .stat:nth-child(1)::after, .project-stats .stat:nth-child(2)::after {
     width: 1px;
     height: 60px;
     left: unset;
     right: 0%;
     bottom: 10%;
   }
-  .product-details .modal {
+  .project-details .option {
     padding: 2em;
   }
-  .product-details .modal .card-title,
-  .product-details .modal .card-footer {
+  .project-details .option .card-title,
+  .project-details .option .card-footer {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -695,7 +699,7 @@ main {
         -ms-flex-align: center;
             align-items: center;
   }
-  .product-details .modal .btn {
+  .project-details .option .btn {
     margin: 0;
   }
   .pledge-price {
@@ -725,7 +729,7 @@ main {
   }
   .selection-modal .modal-content .custom-radio-btn .quantity-left {
     position: absolute;
-    top: 3%;
+    top: 0;
     right: 6%;
   }
   .selection-modal .modal-content .custom-radio-btn .quantity {
