@@ -61,6 +61,7 @@ quantities.forEach(quantity => {
 const projectOptionselectionBtn = document.querySelectorAll('.option-selection-btn');
 const selectionModal = document.querySelector('.selection-modal');
 const modalClosebtn = document.querySelector('.modal-close-icon');
+const backProjectbtn = document.querySelector('#back-project-btn');
 
 projectOptionselectionBtn.forEach(btn =>{
     btn.addEventListener('click', ()=>{
@@ -68,6 +69,9 @@ projectOptionselectionBtn.forEach(btn =>{
     })    
 })
 
+backProjectbtn.addEventListener('click', ()=>{
+    selectionModal.style.display = 'flex';
+}) 
 
 
 modalClosebtn.addEventListener('click', () =>{

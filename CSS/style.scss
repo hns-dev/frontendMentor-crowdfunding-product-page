@@ -125,6 +125,7 @@ body {
   text-align: center;
   color: $dark-gray;
   background-color: $background-color;
+  position: relative;
 }
 
 header {
@@ -368,7 +369,7 @@ header {
   background-color: rgba($color: #000000, $alpha: 0.4);
   overflow: auto;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   .modal-content {
     width: 90%;
@@ -378,6 +379,8 @@ header {
 }
 
 .success-modal {
+  padding: 12em 0;
+
   .modal-content {
     max-width: 500px;
     display: flex;
@@ -547,6 +550,30 @@ header {
   justify-content: space-between;
 }
 
+fieldset {
+  position: relative;
+
+  &:disabled {
+    color: rgb(124, 123, 123);
+  }
+
+  .btn:disabled {
+    background-color: rgb(124, 123, 123);
+  }
+
+  &:disabled::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: rgba(253, 252, 252, 0.5);
+    z-index: 1;
+  }
+}
+
 // Media Queries
 @media (min-width: 466px) {
   .selection-modal {
@@ -667,6 +694,8 @@ header {
   }
 
   .selection-modal {
+    padding: 11em 0;
+
     .modal-content {
       .modal-close-icon {
         top: 4%;
@@ -704,6 +733,10 @@ header {
         }
       }
     }
+  }
+
+  .success-modal {
+    padding: 29em 0;
   }
 
   .custom-radio-btn {
