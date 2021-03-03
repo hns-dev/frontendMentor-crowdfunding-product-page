@@ -315,6 +315,8 @@ header .nav-links a {
   height: 100%;
   background-color: #3cb4ac;
   border-radius: 50px;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
 
 .pledge-price {

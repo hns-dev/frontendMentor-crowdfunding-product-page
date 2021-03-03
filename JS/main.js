@@ -27,13 +27,22 @@ bookmark.addEventListener('click', ()=>{
 
 // progress bar - indicator
 const progressIndicator = document.querySelector('#indicator');
-let currentIndicator = parseInt(progressIndicator.getAttribute('data-done'));
 // total money
-const totalMoney = document.querySelector('#total-money');
-let currentTotalMoney = parseInt(totalMoney.textContent.slice(1).split(',').join(''));
+const currentMoneyDev = document.querySelector('#current-money');
+let currentMoneyValue = parseInt(currentMoneyDev.textContent.slice(1).split(',').join(''));
+// target money
+const targetMoney = document.querySelector('#target-money');
+let targetMoneyValue = parseInt(targetMoney.textContent.slice(4, 11).split(',').join(''));
 // total backers
 const totalBackers = document.querySelector('#total-backers');
 let currentTotalBacker = parseInt(totalBackers.textContent.split(',').join(''));
+
+
+function getProgressPercentage(current, total){
+    return (current/total)* 100;
+}
+// set progress bar indicator width
+progressIndicator.style.width = getProgressPercentage(currentMoneyValue, targetMoneyValue);
 
 
 // Disable selection with zero quantity
@@ -160,21 +169,18 @@ const succesModalbtn = document.querySelector('#success-modal-btn');
 succesModalbtn.addEventListener('click', () => {
     successModal.style.display = 'none';
     
-    
-    console.log(pledgeAmount);
-    // let pledgeAmount = parseInt(pledge.value);
-    currentIndicator += 1;
-    currentTotalMoney += pledgeAmount;
+    let currentIndicator = getProgressPercentage((currentMoneyValue + pledgeAmount), targetMoneyValue);
+    currentMoneyValue += pledgeAmount;
     currentTotalBacker += 1;
 
     progressIndicator.style.width = `${currentIndicator}%`;
 
-    totalMoney.textContent = 
+    currentMoneyDev.textContent = 
     new Intl.NumberFormat('en-US', {
         style: 'currency',
          currency: 'USD',
          minimumFractionDigits:0
-        }).format(currentTotalMoney);
+        }).format(currentMoneyValue);
 
     totalBackers.textContent =  new Intl.NumberFormat().format(currentTotalBacker);
 })
