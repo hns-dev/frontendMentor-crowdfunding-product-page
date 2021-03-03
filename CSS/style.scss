@@ -323,7 +323,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //   align-items: center;
 }
 
 // project details
@@ -527,6 +526,7 @@ header {
 
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
   }
 }
 
