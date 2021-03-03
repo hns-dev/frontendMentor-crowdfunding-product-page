@@ -478,6 +478,16 @@ header .nav-links a {
           align-items: center;
 }
 
+.selection-modal .modal-content .selected-pledge::before {
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  position: absolute;
+  top: 68%;
+  left: 0;
+  background-color: #f2eeee;
+}
+
 .selection-modal .modal-content .selected-pledge .selected-pledge-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -533,6 +543,7 @@ header .nav-links a {
 .custom-radio-btn {
   display: inline-block;
   cursor: pointer;
+  position: relative;
 }
 
 .custom-radio-btn input {
@@ -610,6 +621,12 @@ header .nav-links a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (min-width: 466px) {
+  .selection-modal .modal-content .selected-pledge::before {
+    top: 64%;
+  }
 }
 
 @media (min-width: 700px) {
@@ -722,6 +739,9 @@ header .nav-links a {
             flex-direction: row;
     padding-top: 1em;
     margin-top: 1em;
+  }
+  .selection-modal .modal-content .selected-pledge::before {
+    top: 60%;
   }
   .selection-modal .modal-content .selected-pledge .selected-pledge-form {
     margin-top: 0;
