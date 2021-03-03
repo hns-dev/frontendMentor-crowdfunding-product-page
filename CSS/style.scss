@@ -116,6 +116,10 @@ p {
   margin: 0 auto;
 }
 
+html {
+  position: relative;
+}
+
 body {
   font-family: $font-stack, sans-serif;
   font-size: $font-size;
@@ -125,7 +129,7 @@ body {
   text-align: center;
   color: $dark-gray;
   background-color: $background-color;
-  position: relative;
+  // position: relative;
 }
 
 header {

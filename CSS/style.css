@@ -112,6 +112,10 @@ p {
   margin: 0 auto;
 }
 
+html {
+  position: relative;
+}
+
 body {
   font-family: "Commissioner", sans-serif;
   font-size: 16px;
@@ -121,7 +125,6 @@ body {
   text-align: center;
   color: #7a7a7a;
   background-color: #f2eeee;
-  position: relative;
 }
 
 header {
