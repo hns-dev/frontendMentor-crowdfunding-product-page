@@ -531,7 +531,7 @@ header .nav-links a {
   -webkit-box-flex: 0.8;
       -ms-flex: 0.8;
           flex: 0.8;
-  padding: 0.9em 1.2em;
+  padding: 0.9em 1.2em 0.9em 2.5em;
 }
 
 .selection-modal .modal-content .selected-pledge .selected-pledge-form input::-webkit-input-placeholder {
