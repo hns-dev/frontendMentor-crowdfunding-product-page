@@ -66,6 +66,12 @@ const backProjectbtn = document.querySelector('#back-project-btn');
 projectOptionselectionBtn.forEach(btn =>{
     btn.addEventListener('click', ()=>{
         selectionModal.style.display = 'flex';
+        
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
     })    
 })
 
@@ -120,6 +126,12 @@ form.addEventListener("submit", function(event) {
   event.preventDefault();
   selectionModal.style.display = 'none';
   successModal.style.display = 'flex';
+  
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
 }, false);
 
 
@@ -188,8 +200,6 @@ succesModalbtn.addEventListener('click', () => {
 
     totalBackers.textContent =  new Intl.NumberFormat().format(currentTotalBacker);
 })
-
-
 
 
 
